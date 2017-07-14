@@ -1,0 +1,18 @@
+
+*{padding: 0px; margin: 0px; border: 0px;}
+html, body{height: 100%;}
+body{font-family: 'century gothic', arial, sans-serif; font-size: 18px; background-color: #333;}
+.container{width: 70%; min-height: 100%; margin: 0px auto 60px auto; padding: 30px 20px; background-color: #fff; position: relative;}
+header{background-color: #000; color:#fff; height: 75px;}
+.header-right, .header-left{width: 50%; display: block; float: left; padding-top: 15px;}
+.header-left h1{margin-left: 20px;}
+.header-right nav{float: right; margin-right: 20px;}
+.header-right nav ul li{list-style: none; display: inline;}
+.header-right nav ul li a{text-decoration: none; color: #fff; line-height: 45px; height: 45px;
+  padding: 0px 20px; text-transform: capitalize;}
+.header-right nav ul li a:hover{color: #39f;}
+.highlight{color: #39f;}
+.active{color: #3094f6;}
+footer{background-color: #000; color: #fff; height: 60px; line-height: 60px; text-align: center;
+ width: 100%; position: fixed; bottom: 0px;}
+footer p{font-size: 14px; color: #777;}
