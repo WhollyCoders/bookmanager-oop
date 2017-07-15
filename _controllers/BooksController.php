@@ -19,6 +19,10 @@ class BooksController{
     return $this->Book->get_one_book($id);
   }
 
+  public function create($data){
+    $this->Book->add_book($data);
+  }
+
   public function json(){
     $this->Book->get_all_books();
     return $this->Book->json;

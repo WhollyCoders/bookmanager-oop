@@ -1,5 +1,5 @@
 
-*{padding: 0px; margin: 0px; border: 0px;}
+/**{padding: 0px; margin: 0px; border: 0px;}*/
 html, body{height: 100%;}
 body{font-family: 'century gothic', arial, sans-serif; font-size: 18px; background-color: #333;}
 h2{border-bottom: 1px solid #ccc; padding-bottom: 15px; margin-bottom: 15px;}
@@ -15,6 +15,9 @@ header{background-color: #000; color:#fff; height: 75px;}
 .highlight{color: #39f;}
 .active{color: #3094f6;}
 #content-show-books ul li{list-style: none;}
+
+.form-addbook{margin: 0px auto;}
+
 footer{background-color: #000; color: #fff; height: 60px; line-height: 60px; text-align: center;
  width: 100%; position: fixed; bottom: 0px;}
 footer p{font-size: 14px; color: #777;}

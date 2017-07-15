@@ -17,6 +17,7 @@ class Book{
 
   public function __construct($connection){
     $this->connection = $connection;
+    $this->create_books_table();
     $this->Author = new Author($this->connection);
     // $this->welcome_message();
   }
@@ -78,6 +79,62 @@ class Book{
 
     $this->json = json_encode($this->data);
     return $this->data;
+  }
+
+  public function add_book($data){
+    $this->set_book_params($data);
+    $this->insert_book();
+  }
+
+  public function set_book_params($data){
+    $this->title        = $data['title'];
+    $this->author_id    = $data['author_id'];
+    $this->description  = $data['description'];
+    $this->keywords     = $data['keywords'];
+    $this->isbn_10      = $data['isbn_10'];
+    $this->isbn_13      = $data['isbn_13'];
+  }
+
+  public function insert_book(){
+    $sql = "INSERT INTO `books` (
+      `book_ID`,
+      `book_title`,
+      `book_author_ID`,
+      `book_description`,
+      `book_keywords`,
+      `book_isbn_10`,
+      `book_isbn_13`,
+      `book_date_entered`
+    ) VALUES (
+      NULL,
+      '$this->title',
+      '$this->author_id',
+      '$this->description',
+      '$this->keywords',
+      '$this->isbn_10',
+      '$this->isbn_13',
+      CURRENT_TIMESTAMP
+    );";
+    $result = mysqli_query($this->connection, $sql);
+    if(!$result){echo('*** Error INSERTING Book ***<br>');}
+  }
+
+  public function create_books_table(){
+    // *** Include Table Description ***
+    $sql = "CREATE TABLE IF NOT EXISTS `whollycoders`.`books` (
+       `book_ID` INT(11) NOT NULL AUTO_INCREMENT ,
+       `book_title` VARCHAR(255) NOT NULL ,
+       `book_author_ID` INT(11) NULL ,
+       `book_description` TEXT NULL ,
+       `book_keywords` VARCHAR(255) NULL ,
+       `book_isbn_10` VARCHAR(15) NULL ,
+       `book_isbn_13` VARCHAR(20) NULL ,
+       `book_date_entered` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+       PRIMARY KEY (`book_ID`)
+     ) ENGINE = InnoDB;";
+     // prewrap($sql);
+    $result = mysqli_query($this->connection, $sql);
+    if(!$result){echo('*** ERROR Creating BOOKS Table ***<br>');}
   }
 
   public function welcome_message(){
